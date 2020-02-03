@@ -7,13 +7,19 @@ abstract class FakeEditManager : EditManager {
         manager = this
     }
 
+    override fun getAppDetails(): GppAppDetails =
+            throw IllegalStateException("Test wasn't expecting this method to be called.")
+
+    override fun getListings(): List<GppListing> =
+            throw IllegalStateException("Test wasn't expecting this method to be called.")
+
+    override fun getImages(locale: String, type: String): List<GppImage> =
+            throw IllegalStateException("Test wasn't expecting this method to be called.")
+
     override fun findMaxAppVersionCode(): Long =
             throw IllegalStateException("Test wasn't expecting this method to be called.")
 
-    override fun fetchImageHashes(locale: String, type: String): List<String> =
-            throw IllegalStateException("Test wasn't expecting this method to be called.")
-
-    override fun publishAppDetails(defaultLanguage: String?, contactEmail: String?, contactPhone: String?, contactWebsite: String?): Unit =
+    override fun publishAppDetails(defaultLocale: String?, contactEmail: String?, contactPhone: String?, contactWebsite: String?): Unit =
             throw IllegalStateException("Test wasn't expecting this method to be called.")
 
     override fun publishListing(locale: String, title: String?, shortDescription: String?, fullDescription: String?, video: String?): Unit =
